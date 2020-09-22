@@ -1,7 +1,7 @@
-const getMessage = () => {
-  return fetch('/api/message')
+const getGadgets = () => {
+  return fetch('/api/getGadgets')
     .then((res) => res.json())
-    .then(({ message }) => message);
+    .then(({ gadgets }) => gadgets);
 };
 
-export default { getMessage };
+export default { getGadgets };
