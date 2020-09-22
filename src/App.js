@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
+import Home from './components/Home';
 import Api from './Api';
 
 function App() {
-  Api.getMessage().then((message) => {
-    console.log(message);
-  });
-  return <div className="App"> Hai</div>;
+  return <Home />;
 }
 
 export default App;
