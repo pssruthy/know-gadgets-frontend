@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 import GadgetList from './GadgetList';
 import Header from './Header';
@@ -19,6 +19,14 @@ const Home = () => {
   return (
     <div>
       <Header user={user} />
+      <div style={{ marginTop: '80px' }}>
+        <NavLink to="/latest" activeClassName="active-link">
+          Latest
+        </NavLink>
+        <NavLink to="/trending" activeClassName="active-link">
+          Trending
+        </NavLink>
+      </div>
       <Switch>
         <Route path="/gadget/:id" children={<GadgetDetails />} />
         <Route path="/" children={<GadgetList gadgets={gadgets} />} />

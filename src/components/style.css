@@ -65,3 +65,7 @@ a {
 .user-name {
   color: gray;
 }
+
+.active-link {
+  border-bottom: 2px solid skyblue;
+}
