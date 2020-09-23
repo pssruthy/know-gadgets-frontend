@@ -4,4 +4,8 @@ const getGadgets = () => {
     .then(({ gadgets }) => gadgets);
 };
 
-export default { getGadgets };
+const getGadgetDetails = (id) => {
+  return fetch(`/api/getGadgetDetails/${id}`).then((res) => res.json(res));
+};
+
+export default { getGadgets, getGadgetDetails };

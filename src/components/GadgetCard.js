@@ -1,27 +1,7 @@
 import React from 'react';
-
-const Heading = ({ manufacturer, gadget, model }) => {
-  return (
-    <div>
-      {manufacturer} {gadget} {model}
-    </div>
-  );
-};
-
-const RatingDetails = (props) => {
-  return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div>{props.rate} *</div>
-      <div>
-        {props.ratingCount} {'Rate & Review'}
-      </div>
-    </div>
-  );
-};
-
-const GadgetImg = (props) => {
-  return <img className="gadget-img" alt={props.gadget} src={props.imgUrl} />;
-};
+import Heading from './Heading';
+import RatingDetails from './RatingDetails';
+import GadgetImg from './GadgetImg';
 
 const GadgetCard = (props) => {
   const {
