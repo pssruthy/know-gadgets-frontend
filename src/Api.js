@@ -5,7 +5,13 @@ const getGadgets = () => {
 };
 
 const getGadgetDetails = (id) => {
-  return fetch(`/api/getGadgetDetails/${id}`).then((res) => res.json(res));
+  return fetch(`/api/getGadgetDetails/${id}`).then((res) => res.json());
 };
 
-export default { getGadgets, getGadgetDetails };
+const getReviews = (id) => {
+  return fetch(`/api/getReviews/${id}`)
+    .then((res) => res.json())
+    .then(({ reviews }) => reviews);
+};
+
+export default { getGadgets, getGadgetDetails, getReviews };
