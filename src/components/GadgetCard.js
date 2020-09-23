@@ -20,7 +20,7 @@ const RatingDetails = (props) => {
 };
 
 const GadgetImg = (props) => {
-  return <img className="gadget-img" src={props.imgUrl} />;
+  return <img className="gadget-img" alt={props.gadget} src={props.imgUrl} />;
 };
 
 const GadgetCard = (props) => {
@@ -35,7 +35,7 @@ const GadgetCard = (props) => {
   return (
     <div className="gadget-card">
       <Heading manufacturer={manufacturer} gadget={gadget} model={model} />
-      <GadgetImg imgUrl={imgUrl} />
+      <GadgetImg imgUrl={imgUrl} gadget={gadget} />
       <RatingDetails rate={rate} ratingCount={ratingCount} />
     </div>
   );
