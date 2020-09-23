@@ -2,7 +2,7 @@ import React from 'react';
 
 const Heading = ({ manufacturer, gadget, model }) => {
   return (
-    <div>
+    <div className="heading">
       {manufacturer} {gadget} {model}
     </div>
   );
