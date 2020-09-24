@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
 import GadgetList from './GadgetList';
 import Header from './Header';
 import GadgetDetails from './GadgetDetails';
 import AskForReview from './AskForReview';
-import Api from '../Api';
 import './style.css';
 
 const user = 'sruthy';
 
 const Home = () => {
-  const [gadgets, setGadgets] = useState([]);
-
-  useEffect(() => {
-    Api.getGadgets().then(setGadgets);
-  }, []);
-
   return (
     <div>
       <Header user={user} />
@@ -34,14 +27,16 @@ const Home = () => {
       <Switch>
         <Route path="/gadget/:id" children={<GadgetDetails />} />
         <Route path="/askForReview" children={<AskForReview />} />
+        <Route exact path="/latest" children={<GadgetList />} />
         <Route
           exact
-          path="/latest"
-          children={<GadgetList gadgets={gadgets} />}
+          path="/trending"
+          children={
+            <GadgetList
+              sorter={(details1, details2) => details2.rate - details1.rate}
+            />
+          }
         />
-        <Route to="/">
-          <Redirect to="/latest" />
-        </Route>
       </Switch>
     </div>
   );
