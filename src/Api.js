@@ -31,10 +31,22 @@ const addGadget = (details) => {
     .then(({ id }) => id);
 };
 
+const getAuthLink = () =>
+  fetch('/api/getAuthLink')
+    .then((res) => res.json())
+    .then(({ link }) => link);
+
+const getUser = () =>
+  fetch('/api/getUser')
+    .then((res) => res.json())
+    .then(({ details }) => details);
+
 export default {
   getGadgets,
   getGadgetDetails,
   getReviews,
   addReview,
   addGadget,
+  getAuthLink,
+  getUser,
 };
