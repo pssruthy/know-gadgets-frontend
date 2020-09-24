@@ -10,6 +10,7 @@ const InputBox = (props) => {
 
   return (
     <input
+      type={props.type}
       className={props.className}
       onChange={handleOnchange}
       value={value}

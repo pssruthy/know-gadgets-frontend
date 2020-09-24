@@ -20,8 +20,8 @@ const GadgetDetails = (props) => {
         setReviews(details);
       });
       setStatus(true);
-    });
-  }, []);
+    }, []);
+  });
 
   if (!isLoaded) {
     return <p>Loading...</p>;

@@ -6,9 +6,9 @@ const AddReview = (props) => {
   const [review, setReview] = useState('');
 
   const handleOnclick = () => {
-    props.addReview(rating, review);
     setRating(0);
     setReview('');
+    props.addReview(rating, review);
   };
 
   return (

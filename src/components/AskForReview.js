@@ -8,13 +8,22 @@ const AskForReview = (props) => {
   const [model, setModel] = useState('');
   const [gadget, setGadget] = useState('');
   const [description, setDescription] = useState('');
+  const [img, setImg] = useState(null);
   const [isAdded, setIsAdded] = useState(false);
 
-  const addGadget = (e) => {
-    e.preventDefault();
-    Api.addGadget({ manufacturer, model, gadget, description }).then(() => {
-      setIsAdded(true);
-    });
+  const addGadget = (event) => {
+    event.preventDefault();
+
+    const formDetails = new FormData(event.target);
+    formDetails.append('manufacturer', manufacturer);
+    formDetails.append('model', model);
+    formDetails.append('gadget', gadget);
+    formDetails.append('description', description);
+    formDetails.append('img', img);
+
+    fetch('/api/addGadget', { method: 'POST', body: formDetails }).then(() =>
+      setIsAdded(true)
+    );
   };
 
   if (!isAdded)
@@ -38,6 +47,12 @@ const AskForReview = (props) => {
             type="text"
             onChange={({ target }) => setDescription(target.value)}
           ></textarea>
+        </div>
+        <div className="label-input">
+          <input
+            type="file"
+            onChange={({ target }) => setImg(target.files[0])}
+          ></input>
         </div>
         <button type="submit" className="add-btn">
           Submit
