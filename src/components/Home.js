@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
 import GadgetList from './GadgetList';
 import Header from './Header';
@@ -34,7 +34,14 @@ const Home = () => {
       <Switch>
         <Route path="/gadget/:id" children={<GadgetDetails />} />
         <Route path="/askForReview" children={<AskForReview />} />
-        <Route path="/" children={<GadgetList gadgets={gadgets} />} />
+        <Route
+          exact
+          path="/latest"
+          children={<GadgetList gadgets={gadgets} />}
+        />
+        <Route to="/">
+          <Redirect to="/latest" />
+        </Route>
       </Switch>
     </div>
   );
