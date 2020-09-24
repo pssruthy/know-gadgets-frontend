@@ -4,6 +4,7 @@ import { Switch, Route, NavLink } from 'react-router-dom';
 import GadgetList from './GadgetList';
 import Header from './Header';
 import GadgetDetails from './GadgetDetails';
+import AskForReview from './AskForReview';
 import Api from '../Api';
 import './style.css';
 
@@ -26,9 +27,13 @@ const Home = () => {
         <NavLink to="/trending" activeClassName="active-link">
           Trending
         </NavLink>
+        <NavLink to="/askForReview" activeClassName="active-link">
+          Ask for review
+        </NavLink>
       </div>
       <Switch>
         <Route path="/gadget/:id" children={<GadgetDetails />} />
+        <Route path="/askForReview" children={<AskForReview />} />
         <Route path="/" children={<GadgetList gadgets={gadgets} />} />
       </Switch>
     </div>

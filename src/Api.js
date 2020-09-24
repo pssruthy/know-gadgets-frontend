@@ -25,4 +25,16 @@ const addReview = (details) => {
   return postRequest('/api/addReview', details);
 };
 
-export default { getGadgets, getGadgetDetails, getReviews, addReview };
+const addGadget = (details) => {
+  return postRequest('/api/addGadget', details)
+    .then((res) => res.json())
+    .then(({ id }) => id);
+};
+
+export default {
+  getGadgets,
+  getGadgetDetails,
+  getReviews,
+  addReview,
+  addGadget,
+};

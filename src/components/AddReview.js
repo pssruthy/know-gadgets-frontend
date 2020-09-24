@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import RatingStar from './RatingStar';
 
 const AddReview = (props) => {
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState('');
+
+  const handleOnclick = () => {
+    props.addReview(rating, review);
+    setRating(0);
+    setReview('');
+  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -23,14 +29,7 @@ const AddReview = (props) => {
         value={review}
         onChange={({ target }) => setReview(target.value)}
       />
-      <button
-        className="add-btn"
-        onClick={() => {
-          props.addReview(rating, review);
-          setRating(0);
-          setReview('');
-        }}
-      >
+      <button className="add-btn" onClick={handleOnclick}>
         Add review
       </button>
     </div>
