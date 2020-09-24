@@ -5,6 +5,7 @@ import RatingDetails from './RatingDetails';
 import GadgetImg from './GadgetImg';
 import Api from '../Api';
 import RatingCount from './RatingCount';
+import AddReview from './AddReview';
 
 const GadgetDetails = (props) => {
   const { id } = useParams();
@@ -20,12 +21,16 @@ const GadgetDetails = (props) => {
       });
       setStatus(true);
     });
-  }, [id]);
+  }, []);
 
   if (!isLoaded) {
     return <p>Loading...</p>;
   }
 
+  const addReview = (rating, review) =>
+    Api.addReview({ id, rating, review }).then(() =>
+      Api.getReviews(id).then(setReviews)
+    );
   const reviewList = reviews.map((review) => {
     return (
       <div className="rating-and-review-care" key={review.id}>
@@ -38,12 +43,13 @@ const GadgetDetails = (props) => {
 
   const { manufacturer, gadget, model, imgUrl, rate, ratingCount } = details;
   return (
-    <div>
+    <div className="gadget-container">
       <div className="gadget-details">
         <Heading manufacturer={manufacturer} gadget={gadget} model={model} />
         <GadgetImg imgUrl={imgUrl} gadget={gadget} />
         <RatingDetails rate={rate} ratingCount={ratingCount} />{' '}
       </div>
+      <AddReview id={id} addReview={addReview} />
       <div className="reviews">{reviewList}</div>
     </div>
   );

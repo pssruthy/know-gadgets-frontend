@@ -1,0 +1,40 @@
+import React, { useState, useEffect } from 'react';
+import RatingStar from './RatingStar';
+
+const AddReview = (props) => {
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState('');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <p>Add your review</p>
+      <RatingStar
+        value={rating}
+        count={5}
+        size={25}
+        onChange={setRating}
+        activeColor="green"
+        edit={true}
+      />
+      <textarea
+        className="text-area"
+        rows="4"
+        cols="10"
+        value={review}
+        onChange={({ target }) => setReview(target.value)}
+      />
+      <button
+        className="add-btn"
+        onClick={() => {
+          props.addReview(rating, review);
+          setRating(0);
+          setReview('');
+        }}
+      >
+        Add review
+      </button>
+    </div>
+  );
+};
+
+export default AddReview;

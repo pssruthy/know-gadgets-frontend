@@ -48,12 +48,11 @@ a {
 }
 
 .gadget-details {
-  margin: 0 25% 10%;
   margin-top: 100px;
 }
 
 .reviews {
-  margin: 0 25%;
+  margin-top: 50px;
   border-top: 1px solid rgba(128, 128, 128, 0.407);
 }
 .rating-and-review-care {
@@ -77,4 +76,24 @@ a {
   border-radius: 2px;
   padding: 1px;
   width: fit-content;
+}
+
+.gadget-container {
+  margin: 0 25% 10%;
+}
+
+.add-btn {
+  background-color: white;
+  height: 3rem;
+  width: 8rem;
+
+  border: 1px solid green;
+  color: green;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: green;
+  color: white;
 }

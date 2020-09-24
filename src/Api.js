@@ -1,3 +1,10 @@
+const postRequest = (url, body) =>
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+
 const getGadgets = () => {
   return fetch('/api/getGadgets')
     .then((res) => res.json())
@@ -14,4 +21,8 @@ const getReviews = (id) => {
     .then(({ reviews }) => reviews);
 };
 
-export default { getGadgets, getGadgetDetails, getReviews };
+const addReview = (details) => {
+  return postRequest('/api/addReview', details);
+};
+
+export default { getGadgets, getGadgetDetails, getReviews, addReview };
