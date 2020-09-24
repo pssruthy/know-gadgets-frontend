@@ -69,3 +69,12 @@ a {
 .active-link {
   border-bottom: 2px solid skyblue;
 }
+
+.rating {
+  display: flex;
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+  padding: 1px;
+  width: fit-content;
+}

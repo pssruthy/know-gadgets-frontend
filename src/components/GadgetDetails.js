@@ -4,6 +4,7 @@ import Heading from './Heading';
 import RatingDetails from './RatingDetails';
 import GadgetImg from './GadgetImg';
 import Api from '../Api';
+import RatingCount from './RatingCount';
 
 const GadgetDetails = (props) => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const GadgetDetails = (props) => {
     return (
       <div className="rating-and-review-care" key={review.id}>
         <div className="user-name">{review.user}</div>
-        <div>{review.rating} * </div>
+        <RatingCount rating={review.rating} />
         <div>{review.review} </div>
       </div>
     );
