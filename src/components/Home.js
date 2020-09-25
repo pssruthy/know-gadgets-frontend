@@ -25,7 +25,7 @@ const Home = () => {
   ) : (
     <div>
       <Header user={user} avatar={avatar} />
-      <div style={{ marginTop: '80px' }}>
+      <div style={{ marginTop: '130px' }}>
         <NavLink to="/latest" activeClassName="active-link">
           Latest
         </NavLink>

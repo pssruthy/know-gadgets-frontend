@@ -49,13 +49,22 @@ const GadgetDetails = (props) => {
     );
   });
 
-  const { manufacturer, gadget, model, imgUrl, rate, ratingCount } = details;
+  const {
+    manufacturer,
+    gadget,
+    model,
+    imgUrl,
+    rate,
+    ratingCount,
+    description,
+  } = details;
   return isLoaded ? (
     <div className="gadget-container">
       <div className="gadget-details">
         <Heading manufacturer={manufacturer} gadget={gadget} model={model} />
         <GadgetImg imgUrl={imgUrl} gadget={gadget} />
         <RatingDetails rate={rate} ratingCount={ratingCount} />{' '}
+        <div>{description}</div>
       </div>
       <AddReview id={id} addReview={addReview} />
       <div className="reviews">{reviewList}</div>

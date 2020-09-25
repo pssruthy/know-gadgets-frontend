@@ -55,7 +55,7 @@ a {
 }
 
 .gadget-details {
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 .reviews {
@@ -112,10 +112,34 @@ a {
 
 .user-details {
   display: flex;
+  margin: 4% 30px;
 }
 
 .user-details img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+
+.logo {
+  width: 80px;
+}
+
+.app-name {
+  color: rgb(140, 84, 162);
+  font-weight: 700;
+  font-size: x-large;
+  margin-left: 10px;
+}
+
+.logout {
+  height: fit-content;
+  padding: 8px 15px;
+  margin: 9% auto;
+  border-radius: 5px;
+  background-color: rgba(250, 128, 114, 0.757);
+}
+
+.user-nav {
+  display: 'flex';
 }
