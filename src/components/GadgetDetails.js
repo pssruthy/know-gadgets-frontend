@@ -14,14 +14,15 @@ const GadgetDetails = (props) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    Api.getGadgetDetails(id).then((details) => {
-      setDetails(details);
-      Api.getReviews(id).then((details) => {
-        setReviews(details);
-      });
-      setStatus(true);
-    }, []);
-  });
+    Api.getGadgetDetails(id)
+      .then(setDetails)
+      .then(() =>
+        Api.getReviews(id).then((reviewList) => {
+          setReviews(reviewList);
+          setStatus(true);
+        })
+      );
+  }, [id]);
 
   if (!isLoaded) {
     return <p>Loading...</p>;
@@ -29,8 +30,15 @@ const GadgetDetails = (props) => {
 
   const addReview = (rating, review) =>
     Api.addReview({ id, rating, review }).then(() =>
-      Api.getReviews(id).then(setReviews)
+      Api.getGadgetDetails(id)
+        .then(setDetails)
+        .then(() =>
+          Api.getReviews(id).then((reviewList) => {
+            setReviews(reviewList);
+          })
+        )
     );
+
   const reviewList = reviews.map((review) => {
     return (
       <div className="rating-and-review-care" key={review.id}>
@@ -42,7 +50,7 @@ const GadgetDetails = (props) => {
   });
 
   const { manufacturer, gadget, model, imgUrl, rate, ratingCount } = details;
-  return (
+  return isLoaded ? (
     <div className="gadget-container">
       <div className="gadget-details">
         <Heading manufacturer={manufacturer} gadget={gadget} model={model} />
@@ -52,6 +60,8 @@ const GadgetDetails = (props) => {
       <AddReview id={id} addReview={addReview} />
       <div className="reviews">{reviewList}</div>
     </div>
+  ) : (
+    <p>Loading...</p>
   );
 };
 

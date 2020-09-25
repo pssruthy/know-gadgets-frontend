@@ -5,8 +5,8 @@ const Header = (props) => {
     <div className="header">
       <p>Know Gadget</p>
       <div className="user-details">
-        <img alt="user" src={props.user.avatar_url}></img>
-        <p>{props.user.user}</p>
+        <img alt="user" src={props.avatar}></img>
+        <p>{props.user}</p>
       </div>
     </div>
   );

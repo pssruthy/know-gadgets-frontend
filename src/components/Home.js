@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 import GadgetList from './GadgetList';
 import Header from './Header';
@@ -7,17 +7,24 @@ import GadgetDetails from './GadgetDetails';
 import AskForReview from './AskForReview';
 import Api from '../Api';
 import './style.css';
+import Login from './Login';
 
 const Home = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(undefined);
+  const [avatar, setAvatar] = useState('');
 
   useEffect(() => {
-    Api.getUser().then(setUser);
+    Api.getUser().then((details) => {
+      setUser(details.user);
+      setAvatar(details.avatar_url);
+    });
   }, []);
 
-  return (
+  return !user ? (
+    <Login />
+  ) : (
     <div>
-      <Header user={user} />
+      <Header user={user} avatar={avatar} />
       <div style={{ marginTop: '80px' }}>
         <NavLink to="/latest" activeClassName="active-link">
           Latest
@@ -42,8 +49,8 @@ const Home = () => {
             />
           }
         />
-        <Route exact path="/" children={<GadgetList />}>
-          <Redirect to="/latest" />
+        <Route exact path="/">
+          <div>Welcome to know gadget</div>
         </Route>
       </Switch>
     </div>
