@@ -28,27 +28,41 @@ const AskForReview = (props) => {
 
   if (!isAdded)
     return (
-      <form onSubmit={addGadget}>
+      <form className="ask-review" onSubmit={addGadget}>
         <div className="label-input">
           <label>Manufacturer</label>
-          <InputBox type="text" onChange={setManufacturer} />
+          <InputBox
+            className="add-gadget-input"
+            type="text"
+            onChange={setManufacturer}
+          />
         </div>
         <div className="label-input">
           <label>Gadget</label>
-          <InputBox type="text" onChange={setGadget}></InputBox>
+          <InputBox
+            className="add-gadget-input"
+            type="text"
+            onChange={setGadget}
+          ></InputBox>
         </div>
         <div className="label-input">
           <label>Model</label>
-          <InputBox type="text" onChange={setModel}></InputBox>
+          <InputBox
+            className="add-gadget-input"
+            type="text"
+            onChange={setModel}
+          ></InputBox>
         </div>
         <div className="label-input">
           <label>Description</label>
           <textarea
             type="text"
+            cols="36"
             onChange={({ target }) => setDescription(target.value)}
           ></textarea>
         </div>
         <div className="label-input">
+          <label>Image</label>
           <input
             type="file"
             onChange={({ target }) => setImg(target.files[0])}

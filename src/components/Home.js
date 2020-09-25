@@ -25,14 +25,30 @@ const Home = () => {
   ) : (
     <div>
       <Header user={user} avatar={avatar} />
-      <div style={{ marginTop: '130px' }}>
-        <NavLink to="/latest" activeClassName="active-link">
+      <div
+        style={{
+          marginTop: '130px',
+        }}
+      >
+        <NavLink
+          to="/latest"
+          className="nav-link"
+          activeClassName="active-link"
+        >
           Latest
         </NavLink>
-        <NavLink to="/trending" activeClassName="active-link">
+        <NavLink
+          to="/trending"
+          className="nav-link"
+          activeClassName="active-link"
+        >
           Trending
         </NavLink>
-        <NavLink to="/askForReview" activeClassName="active-link">
+        <NavLink
+          to="/askForReview"
+          className="nav-link"
+          activeClassName="active-link"
+        >
           Ask for review
         </NavLink>
       </div>
@@ -50,7 +66,7 @@ const Home = () => {
           }
         />
         <Route exact path="/">
-          <div>Welcome to know gadget</div>
+          <div className="welcome">Welcome to know gadget</div>
         </Route>
       </Switch>
     </div>

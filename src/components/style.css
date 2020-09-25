@@ -1,6 +1,9 @@
 label {
   padding-left: 26px;
+  padding-right: 26px;
   width: 120px;
+  font-weight: 500;
+  font-size: larger;
   display: inline-block;
 }
 
@@ -22,7 +25,7 @@ label {
   display: flex;
   justify-content: 'center';
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 .header {
@@ -55,7 +58,7 @@ a {
 }
 
 .gadget-details {
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 .reviews {
@@ -90,19 +93,15 @@ a {
 }
 
 .add-btn {
-  background-color: white;
-  height: 3rem;
+  margin-top: 5px;
+  background-color: rgb(140, 84, 162);
+  height: 2rem;
   width: 8rem;
-
-  border: 1px solid green;
-  color: green;
+  color: white;
+  border: 1px solid rgb(140, 84, 162);
   font-weight: 900;
   cursor: pointer;
-}
-
-.add-btn:hover {
-  background-color: green;
-  color: white;
+  border-radius: 2px;
 }
 
 .label-input {
@@ -142,4 +141,45 @@ a {
 
 .user-nav {
   display: 'flex';
+}
+
+.nav-link {
+  color: rgb(140, 84, 162);
+  width: fit-content;
+  font-size: x-large;
+  font-weight: 500;
+  padding: 1px 10px;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid black;
+}
+
+.login {
+  margin: 10% 40%;
+}
+
+.login-with {
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.welcome {
+  font-size: x-large;
+  font-weight: 500;
+  color: rgb(140, 84, 162);
+  padding: 200px 0 0 400px;
+}
+
+.ask-review {
+  margin-top: 70px;
+}
+
+.add-gadget-input {
+  width: 300px;
 }
