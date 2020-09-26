@@ -6,7 +6,7 @@ const RatingDetails = (props) => {
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <RatingCount rating={props.rate}></RatingCount>
       <div>
-        {props.ratingCount} {'Rate & Review'}
+        {props.ratingCount} {'Ratings & Reviews'}
       </div>
     </div>
   );

@@ -41,6 +41,10 @@ const getUser = () =>
     .then((res) => res.json())
     .then(({ details }) => details);
 
+const logout = () => {
+  return fetch('/api/logout');
+};
+
 export default {
   getGadgets,
   getGadgetDetails,
@@ -49,4 +53,5 @@ export default {
   addGadget,
   getAuthLink,
   getUser,
+  logout,
 };
