@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
 
-import GadgetList from './GadgetList';
 import Header from './Header';
 import GadgetDetails from './GadgetDetails';
 import AskForReview from './AskForReview';
+import TrendingList from './TrendingList';
+import LatestList from './LatestList';
 import Api from '../Api';
 import './style.css';
 import Login from './Login';
@@ -55,20 +56,8 @@ const Home = () => {
       <Switch>
         <Route exact path="/gadget/:id" children={<GadgetDetails />} />
         <Route exact path="/askForReview" children={<AskForReview />} />
-        <Route
-          exact
-          path="/latest"
-          children={<GadgetList sorter={() => {}} />}
-        />
-        <Route
-          exact
-          path="/trending"
-          children={
-            <GadgetList
-              sorter={(details1, details2) => details2.rate - details1.rate}
-            />
-          }
-        />
+        <Route exact path="/latest" children={<LatestList />} />
+        <Route exact path="/trending" children={<TrendingList />} />
         <Route exact path="/">
           <div className="welcome">Welcome to know gadget</div>
         </Route>
