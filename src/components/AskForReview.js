@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import InputBox from './InputBox';
-import Api from '../Api';
 import { Redirect } from 'react-router-dom';
+
+const LabelAndInput = (props) => {
+  return (
+    <div className="label-input">
+      <label>{props.label}</label>
+      <InputBox className="add-gadget-input" {...props.inputConfig} />
+    </div>
+  );
+};
 
 const AskForReview = (props) => {
   const [manufacturer, setManufacturer] = useState('');
@@ -29,30 +37,13 @@ const AskForReview = (props) => {
   if (!isAdded)
     return (
       <form className="ask-review" onSubmit={addGadget}>
-        <div className="label-input">
-          <label>Manufacturer</label>
-          <InputBox
-            className="add-gadget-input"
-            type="text"
-            onChange={setManufacturer}
-          />
-        </div>
-        <div className="label-input">
-          <label>Gadget</label>
-          <InputBox
-            className="add-gadget-input"
-            type="text"
-            onChange={setGadget}
-          ></InputBox>
-        </div>
-        <div className="label-input">
-          <label>Model</label>
-          <InputBox
-            className="add-gadget-input"
-            type="text"
-            onChange={setModel}
-          ></InputBox>
-        </div>
+        <LabelAndInput
+          label="Manufacturer"
+          type="text"
+          onChange={setManufacturer}
+        />
+        <LabelAndInput label="Gadget" type="text" onChange={setGadget} />
+        <LabelAndInput label="Model" type="text" onChange={setModel} />
         <div className="label-input">
           <label>Description</label>
           <textarea
