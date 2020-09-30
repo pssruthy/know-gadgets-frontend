@@ -136,6 +136,7 @@ a {
   height: fit-content;
   padding: 8px 15px;
   margin: 9% auto;
+  cursor: pointer;
   border-radius: 5px;
   background-color: rgba(250, 128, 114, 0.757);
 }

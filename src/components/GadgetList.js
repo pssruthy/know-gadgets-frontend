@@ -9,8 +9,7 @@ const GadgetList = ({ sorter }) => {
   useEffect(() => {
     Api.getGadgets().then(setGadgets);
   }, []);
-  console.log(sorter);
-  const sortedGadgets = sorter ? gadgets.sort(sorter) : gadgets;
+  const sortedGadgets = gadgets.sort(sorter);
 
   const gadgetsGallery = sortedGadgets.map((gadget) => (
     <Link to={`/gadget/${gadget.id}`} key={gadget.id}>

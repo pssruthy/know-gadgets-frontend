@@ -53,9 +53,13 @@ const Home = () => {
         </NavLink>
       </div>
       <Switch>
-        <Route path="/gadget/:id" children={<GadgetDetails />} />
-        <Route path="/askForReview" children={<AskForReview />} />
-        <Route exact path="/latest" children={<GadgetList />} />
+        <Route exact path="/gadget/:id" children={<GadgetDetails />} />
+        <Route exact path="/askForReview" children={<AskForReview />} />
+        <Route
+          exact
+          path="/latest"
+          children={<GadgetList sorter={() => {}} />}
+        />
         <Route
           exact
           path="/trending"
