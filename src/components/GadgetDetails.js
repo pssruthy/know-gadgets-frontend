@@ -63,7 +63,7 @@ const GadgetDetails = (props) => {
       <div className="gadget-details">
         <Heading manufacturer={manufacturer} gadget={gadget} model={model} />
         <GadgetImg imgUrl={imgUrl} gadget={gadget} />
-        <RatingDetails rate={rate} ratingCount={ratingCount} />{' '}
+        <RatingDetails rating={rate} ratingCount={ratingCount} />{' '}
         <div>{description}</div>
       </div>
       <AddReview id={id} addReview={addReview} />

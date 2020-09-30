@@ -16,7 +16,7 @@ const GadgetCard = (props) => {
     <div className="gadget-card">
       <Heading manufacturer={manufacturer} gadget={gadget} model={model} />
       <GadgetImg imgUrl={imgUrl} gadget={gadget} />
-      <RatingDetails rate={rate} ratingCount={ratingCount} />
+      <RatingDetails rating={rate} ratingCount={ratingCount} />
     </div>
   );
 };

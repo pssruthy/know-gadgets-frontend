@@ -1,11 +1,11 @@
 import React from 'react';
-import RatingStar from './RatingStar';
+import StarRatings from 'react-rating-stars-component';
 
 const RatingCount = (props) => {
   return (
     <div className="rating">
       {props.rating}
-      <RatingStar
+      <StarRatings
         count={1}
         size={18}
         onChange={() => {}}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RatingStar from './RatingStar';
+import StarRatings from 'react-rating-stars-component';
 
 const AddReview = (props) => {
   const [rating, setRating] = useState(0);
@@ -14,7 +14,7 @@ const AddReview = (props) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <p>Add your review</p>
-      <RatingStar
+      <StarRatings
         value={rating}
         count={5}
         size={25}
