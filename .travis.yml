@@ -1,0 +1,22 @@
+language: node_js
+node_js: lts/*
+os:
+  - linux
+env:
+  - NODE_ENV=test
+install:
+  - rm -rf public src package.json package-lock.json
+services:
+  - redis-server
+jobs:
+  include:
+    - stage: Deploy
+      script:
+        - './buildApp.sh'
+      deploy:
+        provider: heroku
+        api_key:
+          secure: bX8dQJ0FqAYQVUSm0HbwGUXHSR+DGpmkCGYyEwtwkGabmid8SCW1gJToaZ80gtWm+JR/NspWmstmvpVp7h+ptaBEVDawD28OsEmkWN59bgBn81LHsXHMBoxoMr8AXfXBvqetdQEE93W9l8yVHuG252g4nKF8yn79mz7xFVJo20w0hp7/cNczr94xmC7gx/6DB6uIJRJG9nG5QT9tmLac/r9wk1AsSygmvgLqZ0S9/nbXEflIhe7GeEhN4QIpeemRHCJq/kkmiSKLvvhagfiG2/NzJx8OxnkNS4zG9oYsJ0pDqm70xmRIjJfBRQql4fKa0OjY7fPOrx848l+6I5YjeTMPpoXcZi/95nx8XnFJkVyHJudt4tB00ZN8DdbngBBAD6kVKnF6tJc/j4ImdfWTCvJjUKm557UtKvKeo5uWIPe+kr/Jb41moPphq4OOobc2KxTen54SJNjXA9GOP8jqVNSAzluBoJMAubviF46fdB2zy1xMrKm+Kx95lpROwYCHJ7/FiTCtaeaAHgOB623lxwDY9Z0C5+hUSG/YUHQlS7gaTzzvWQ9Yfk2CbD5gDBd7xdSCUyy1ZHiOAuoOawGcZ2Q5YpHsTaRZnPXN8enQ1FEUPXSH7t5kltEPXtQyY8vTwlO7chmaFTVfj+O2y/cr0NrUz7dkVgxDHoyy7ztqDWM=
+        skip_cleanup: true
+        app: know-gadgets-react
+        run: restart
